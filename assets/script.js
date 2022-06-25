@@ -30,7 +30,7 @@ function getWeatherByCity(cityName) {
       document.querySelector(".title-container").innerHTML = "";
       document.querySelector(".weather-info").innerHTML = "";
       var cityName = data.name;
-      console.log(cityName)
+      console.log(cityName);
       var cityNameEl = document.createElement("h2");
       cityNameEl.setAttribute("class", "city-title");
       cityNameEl.textContent = cityName;
@@ -73,20 +73,19 @@ function getWeatherByCity(cityName) {
       // document.getElementById("wind").innerHTML = `Wind: ${wind} MPH`;
       // document.getElementById("humidity").innerHTML = `Humidity: ${humidity} %`;
       // document.getElementById("uv-index").innerHTML = `UV Inndex: ${}`;
-    });
+      var uviUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=040b02cde2ef8c9374d136e39c5109f3`;
 
-  var uviUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=040b02cde2ef8c9374d136e39c5109f3`;
-
-  fetch(uviUrl)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      var lat = data.lat;
-      var lon = data.lon;
-      // var uviIndex = data.current.uvi;
-      // document.getElementById(
-      //   "uv-index"
-      // ).innerHTML = `UV Index: ${uviIndex}`;
+      fetch(uviUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          var lat = data.lat;
+          var lon = data.lon;
+          // var uviIndex = data.current.uvi;
+          // document.getElementById(
+          //   "uv-index"
+          // ).innerHTML = `UV Index: ${uviIndex}`;
+        });
     });
 
   // var forcastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&APPID=040b02cde2ef8c9374d136e39c5109f3&units=imperial`;
