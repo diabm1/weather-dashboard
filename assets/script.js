@@ -14,6 +14,7 @@ cityArr.forEach(function (city) {
   var history = document.getElementById("history");
   history.append(cityButton);
 });
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const input = document.querySelector("#search-input");
